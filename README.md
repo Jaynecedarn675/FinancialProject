@@ -125,12 +125,17 @@ dotnet test
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-**[Seu Nome]**
+Created and maintained by **Gabriel Campos**
 
-* LinkedIn: [Seu Link]
-* Portfólio: [Seu Link]
+🐙 GitHub: **[gabrielcamposdeveloper](https://github.com/gabrielcamposdeveloper)**
 
-*Projeto desenvolvido para fins de estudo e demonstração técnica de arquitetura de software.*
+Feel free to explore my other repositories and connect with me.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
 
