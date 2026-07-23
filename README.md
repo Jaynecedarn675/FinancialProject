@@ -134,6 +134,3 @@ dotnet test
 
 *Projeto desenvolvido para fins de estudo e demonstração técnica de arquitetura de software.*
 
-```
-
-```
