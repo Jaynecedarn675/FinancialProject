@@ -1,28 +1,54 @@
-# Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
+# =========================
+# Sistema Operacional e IDEs
+# =========================
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Backend (.NET 8 / C#)
+# =========================
+[Bb]in/
+[Oo]bj/
+
+# Logs e arquivos de dump
+*.log
+*.mdmp
+
+# Caso crie arquivos de banco de dados locais (SQLite/LocalDB) para testes
+*.db
+*.db-shm
+*.db-wal
+*.mdf
+*.ldf
+
+# =========================
+# Frontend (Angular / Node)
+# =========================
+dist/
+out-tsc/
+tmp/
+coverage/
 .angular/
 
-# Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+# Dependências (O node_modules será ignorado em qualquer subpasta)
+node_modules/
 
-# Environment files
-/.env
-
-# Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Logs
+# Logs de gerenciadores de pacote
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# Caches do TypeScript
+*.tsbuildinfo
+
+# Arquivos de ambiente e segredos locais (Não commitar senhas reais)
+.env
+.env.*
+!.env.example
