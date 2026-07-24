@@ -1,95 +1,93 @@
 
-# 📊 FinOps Core - Sistema de Gestão e Conciliação Financeira
+# 📊 FinOps Core - Financial Management and Reconciliation System
 
-> Aplicação corporativa desenvolvida para demonstrar padrões arquiteturais avançados, alta performance em consultas e integridade de dados financeiros.
+> Corporate application developed to demonstrate advanced architectural patterns, high query performance and financial data integrity.
 
-Este projeto é um módulo financeiro focado em garantir a integridade do fluxo de caixa (Escrita) e entregar alta performance na leitura de dados para dashboards (Leitura), utilizando a segregação de responsabilidades.
+This project is a financial module focused on ensuring cash flow integrity (Write) and delivering high performance in data reading for dashboards (Read), using segregation of responsibilities.
 
-## 🏗️ Arquitetura e Padrões de Projeto
+## 🏗️ Architecture and Design Patterns
 
-O sistema foi desenhado utilizando **Clean Architecture (Arquitetura Limpa)** e os princípios do **Domain-Driven Design (DDD)** para garantir que o coração do software seja isolado de frameworks e tecnologias de infraestrutura.
+The system was designed using **Clean Architecture** and the principles of **Domain-Driven Design (DDD)** to ensure that the software core is isolated from frameworks and infrastructure technologies.
 
-Para atender aos requisitos de alta performance e integridade, foi implementado o padrão **CQRS (Command Query Responsibility Segregation)**:
+To meet high performance and integrity requirements, the **CQRS (Command Query Responsibility Segregation)** pattern was implemented:
 
-*   **Commands (Escrita):** Utiliza **Entity Framework Core** com o padrão *Unit of Work*. As operações de mudança de estado passam por validações rigorosas nas Entidades de Domínio (Rich Models), garantindo propriedades ACID e lidando com concorrência otimista (Optimistic Concurrency) no banco de dados.
-*   **Queries (Leitura):** Utiliza **Dapper** executando consultas SQL nativas e otimizadas diretamente no banco, mapeando os resultados para DTOs leves. Isso ignora o overhead de tracking do ORM tradicional em relatórios pesados.
+*   **Commands (Write):** Uses **Entity Framework Core** with the *Unit of Work* pattern. State-changing operations go through strict validations in Domain Entities (Rich Models), ensuring ACID properties and handling optimistic concurrency in the database.
+*   **Queries (Read):** Uses **Dapper** executing native and optimized SQL queries directly in the database, mapping results to lightweight DTOs. This avoids the overhead of traditional ORM tracking in heavy reporting.
 
-Outros padrões aplicados:
-*   **Mediator Pattern (via MediatR):** Desacoplamento dos Controllers da API das regras de negócio.
-*   **Result Pattern:** Retorno de estados de Sucesso/Falha sem depender do custoso lançamento de exceções (`throw`) para quebras de regras de negócio.
-*   **Idempotência e Resiliência:** Proteção contra dupla submissão de requisições financeiras.
+Other applied patterns:
+*   **Mediator Pattern (via MediatR):** Decouples API Controllers from business rules.
+*   **Result Pattern:** Returns Success/Failure states without relying on expensive exception throwing for business rule violations.
+*   **Idempotency and Resilience:** Protection against duplicate submission of financial requests.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
 ### Backend
 *   .NET Core (C#)
 *   Entity Framework Core (Commands / Migrations)
-*   Dapper (Queries de alta performance)
+*   Dapper (High performance Queries)
 *   LINQ
 *   MediatR & FluentValidation
-*   xUnit / Moq (Testes Unitários)
+*   xUnit / Moq (Unit Tests)
 
 ### Frontend
 *   Angular (SPA, TypeScript, SCSS)
-*   RxJS (Programação Reativa)
-*   Interceptors (Tratamento global de erros e Autenticação)
+*   RxJS (Reactive Programming)
+*   Interceptors (Global error handling and Authentication)
 
-### Banco de Dados & Infraestrutura
-*   Oracle Database (Relacional)
+### Database & Infrastructure
+*   Oracle Database (Relational)
 *   Docker & Docker Compose
-*   Kubernetes (Manifestos K8s disponíveis na pasta `/k8s`)
+*   Kubernetes (K8s manifests available in `/k8s`)
 *   GitHub Actions (CI/CD)
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
-A solution do Backend está dividida seguindo a Regra da Dependência:
+The backend solution is divided following the Dependency Rule:
 
 ```text
 /src
- ├── /FinancialSystem.Domain       # Entidades, Value Objects e Regras de Negócio Puras (Sem dependências externas)
- ├── /FinancialSystem.Application  # Casos de Uso, CQRS (Commands/Queries), DTOs e Validações
- ├── /FinancialSystem.Infrastructure # EF Core (DbContext, Mapeamentos), Dapper, Integrações externas
- ├── /FinancialSystem.API          # Controllers RESTful, Swagger, Configurações de Injeção de Dependência
+ ├── /FinancialSystem.Domain       # Entities, Value Objects and Pure Business Rules (No external dependencies)
+ ├── /FinancialSystem.Application  # Use Cases, CQRS (Commands/Queries), DTOs and Validations
+ ├── /FinancialSystem.Infrastructure # EF Core (DbContext, Mappings), Dapper, External integrations
+ ├── /FinancialSystem.API          # RESTful Controllers, Swagger, Dependency Injection configuration
 /frontend
- ├── /financial-app                # Aplicação Angular
-/k8s                               # Manifestos de Deployment do Kubernetes
+ ├── /financial-app                # Angular Application
+/k8s                               # Kubernetes Deployment manifests
 
 ```
 
 ---
 
-## ⚙️ Como Executar o Projeto Localmente
+## ⚙️ How to Run the Project Locally
 
-### Pré-requisitos
+### Prerequisites
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [.NET SDK](https://dotnet.microsoft.com/download)
 * [Node.js](https://nodejs.org/) & Angular CLI (`npm install -g @angular/cli`)
 
-### Passo a Passo
+### Step by Step
 
-1. **Clone o repositório:**
+1. **Clone the repository:**
 ```bash
 git clone [https://github.com/seu-usuario/finops-core.git](https://github.com/seu-usuario/finops-core.git)
 cd finops-core
 
 ```
 
-
-2. **Suba o Banco de Dados (Oracle):**
-Na raiz do projeto, execute o Docker Compose para subir a instância do banco de dados:
+2. **Start the Database (Oracle):**
+At the project root, run Docker Compose to start the database instance:
 ```bash
 docker-compose up -d db
 
 ```
 
-
-*Nota: A imagem do Oracle XE pode demorar cerca de 1 a 2 minutos para inicializar completamente na primeira execução.*
-3. **Execute as Migrations e Inicie a API:**
+*Note: The Oracle XE image may take about 1 to 2 minutes to fully initialize on the first run.*
+3. **Run the Migrations and Start the API:**
 ```bash
 cd src/FinancialSystem.API
 dotnet ef database update
@@ -97,10 +95,9 @@ dotnet run
 
 ```
 
-
-A API estará disponível em `https://localhost:5001`. O Swagger pode ser acessado em `https://localhost:5001/swagger`.
-4. **Inicie o Frontend Angular:**
-Em um novo terminal, navegue até a pasta do frontend:
+The API will be available at `https://localhost:5001`. Swagger can be accessed at `https://localhost:5001/swagger`.
+4. **Start the Angular Frontend:**
+In a new terminal, navigate to the frontend folder:
 ```bash
 cd frontend/financial-app
 npm install
@@ -108,14 +105,13 @@ ng serve
 
 ```
 
-
-Acesse a aplicação no navegador via `http://localhost:4200`.
+Access the application in the browser at `http://localhost:4200`.
 
 ---
 
-## 🧪 Rodando os Testes
+## 🧪 Running the Tests
 
-Para garantir a qualidade e as regras de negócio, o projeto conta com testes de unidade na camada de domínio e aplicação.
+To ensure quality and business rules, the project includes unit tests in the domain and application layers.
 
 ```bash
 cd src
